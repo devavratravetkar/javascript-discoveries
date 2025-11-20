@@ -26,7 +26,7 @@ function makeShoppingList({
     // console.log('otherItems EMPTY'); //do nothing
   } else {
     if(Object.keys(otherItems).length > 0){// if only a single string was passed, its first character will be represented as '0':'[first character]' in the object... so it hasOwnProperty of '0'... but for cases in which we pass {itemN:___, itemM:__, etc.}, it won't have a property of 0
-      if(otherItems.hasOwnProperty('0')/*otherItems has key of 0, because it is a string that got broken down into characters due to object destructuring with keys=0,1,2... length-1 of the string*/){
+      if(otherItems.hasOwnProperty('0') && otherItems[0].length === 1/*otherItems has key of 0, because it is a string that got broken down into characters due to object destructuring with keys=0,1,2... length-1 of the string*/){
         //handle the string
         let realvalue = '';
         for (let key in otherItems) {
